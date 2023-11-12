@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LOVE MANIFEST - Online Gallery of Contemporary Art</title>
+    <meta
+      name="description"
+      content="Explore LOVE MANIFEST, an online gallery showcasing contemporary art and artists."
+    />
+    <meta
+      name="keywords"
+      content="art, contemporary art, online gallery, art exhibits"
+    />
+    <link rel="canonical" href="https://lovemanifest.art/" />
+    <meta
+      property="og:title"
+      content="LOVE MANIFEST - Online Gallery of Contemporary Art"
+    />
+    <meta
+      property="og:description"
+      content="Discover the world of contemporary art at LOVE MANIFEST. Featuring emerging and established artists."
+    />
+    <meta property="og:url" content="https://lovemanifest.art/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://lovemanifest.art/media/og_image.jpg"
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icons/favicon-16x16.png"
+    />
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#b43cf5" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icons/apple-touch-icon.png"
+    />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="application-name" content="LOVE MANIFEST" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-config" content="browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-starturl" content="/" />
+    <meta name="apple-mobile-web-app-title" content="LOVE MANIFEST" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      httpEquiv="Accept-CH"
+      content="DPR, Viewport-Width, Width, Downlink"
+    />
+    <script>
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+      const YM_ID = 91457067;
+      ym(YM_ID, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+      });
+      function reachGoal(targetName, params) {
+        if (window.ym) {
+          ym(YM_ID, "reachGoal", targetName, params);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="video-container">
+        <video
+          id="promo"
+          class="video"
+          src="media/video1.mp4"
+          autoplay
+          loop
+          muted
+        ></video>
+        <div class="sound-indicator">&#128266;</div>
+      </div>
+      <div class="text-content">
+        <h1>LOVE MANIFEST</h1>
+        <p>online gallery of contemporary art</p>
+        <div class="heart-icon"></div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener("appinstalled", () => reachGoal("appinstalled"));
+      document.getElementById("promo").addEventListener("click", function (ev) {
+        ev.target.muted = !ev.target.muted;
+      });
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("service-worker.js").then(
+            function (registration) {
+              console.log(
+                "Регистрация ServiceWorker прошла успешно с областью действия: ",
+                registration.scope
+              );
+            },
+            function (err) {
+              console.log("Регистрация ServiceWorker не удалась: ", err);
+            }
+          );
+        });
+      }
+    </script>
+  </body>
+</html>

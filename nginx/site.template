@@ -1,0 +1,79 @@
+server {
+    listen ${NGINX_PORT};
+    listen [::]:${NGINX_PORT};
+
+    # remove last slesh
+    rewrite ^/(.*)/$ /$1 permanent;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    error_page 404 /404.html;
+
+    location = / {
+    }
+
+    location = /internal/health {
+      default_type text/plain;
+      return 200 '';
+    }
+
+    location = /health {
+      default_type text/plain;
+      return 200 '';
+    }
+
+    location = /favicon.ico {
+      access_log off;
+      log_not_found off;
+      # 1 DAY
+      add_header Cache-Control "public, max-age=86400";
+    }
+
+    location = /service-worker.js {
+      access_log off;
+      # NO CACHE
+      add_header Cache-Control "no-cache, no-store, max-age=0, must-revalidate";
+      add_header Expires 0;
+    }
+
+    location = /robots.txt  {
+      access_log off;
+      log_not_found off;
+      # 1 DAY
+      add_header Cache-Control "public, max-age=86400";
+    }
+
+    location ~* \.(html)$ {
+      # NO CACHE
+      # 1 HOUR
+      add_header Cache-Control "public, max-age=3600";
+    }
+
+    location ~* \.(js|css)$ {
+      access_log off;
+      # 1 YEAR
+      expires max;
+      add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location ~* \.(json|jpg|jpeg|png|svg|gif|ttf|woff|woff2|cur|gz|mp4|ogg|ogv|webm|webp|eot|avif)$ {
+      access_log off;
+      # 1 YEAR
+      expires max;
+      add_header Cache-Control "public, max-age=31536000, immutable";
+    }
+
+    location ~ /\.          { access_log off; log_not_found off; deny all; }
+
+    location ~ ~$           { access_log off; log_not_found off; deny all; }
+
+    gzip_static on;
+    gzip  on;
+
+    gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript image/svg+xml;
+
+    server_name _;
+
+    server_tokens off;
+}
