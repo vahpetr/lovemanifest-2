@@ -4,9 +4,10 @@ const urlsToCache = [
   "index.html",
   "styles.css",
   "favicon.ico",
-  "media/video1.mp4",
+  "media/logo.png",
   "media/heart.svg",
   "media/og_image.jpg",
+  "media/video1.mp4",
   "icons/android-chrome-192x192.png",
   "icons/android-chrome-512x512.png",
   "icons/apple-touch-icon.png",
@@ -20,12 +21,7 @@ const urlsToCache = [
   "icons/maskable_icon_x384.png",
   "icons/maskable_icon_x512.png",
   "icons/mstile-150x150.png",
-  "icons/safari-pinned-tab.svg",
-  "fonts/tt-espina/TT_Espina_Black.eot",
-  "fonts/tt-espina/TT_Espina_Black.otf",
-  "fonts/tt-espina/TT_Espina_Black.ttf",
-  "fonts/tt-espina/TT_Espina_Black.woff",
-  "fonts/tt-espina/TT_Espina_Black.woff2"
+  "icons/safari-pinned-tab.svg"
 ];
 
 self.addEventListener("install", (event) => {
